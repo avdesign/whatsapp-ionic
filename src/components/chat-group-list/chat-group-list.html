@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let group of groups" 
+      [hidden]="!(group.is_member|async)"
+      (click)="goToMessages(group)">
+      <ion-avatar item-start>
+        <img [src]="group.photo_url | buildUrl">
+      </ion-avatar>
+      <h2 [groupViewer]="group.viewed">{{group.name}}</h2>
+      <h3>
+          <ng-container *ngIf="group.last_message|async as message">
+              <span *ngIf="message.type === 'text'" [groupViewer]="group.viewed">
+                 {{message.user.name}}: {{formatTextMessage(message)}}
+              </span>
+              <span *ngIf="message.type === 'audio'" [groupViewer]="group.viewed">
+                  {{message.user.name}}: {{formatTextMessage(message)}}
+                  <ion-icon name="mic">Audio</ion-icon>
+              </span>
+              <span *ngIf="message.type === 'image'" [groupViewer]="group.viewed">
+                  {{message.user.name}}: {{formatTextMessage(message)}}
+                  <ion-icon name="images">Image</ion-icon>
+              </span>
+          </ng-container>        
+          <!--{{(group.last_message|async)?.content}}-->    
+      </h3>
+    </ion-item>
+  </ion-list>  
+</ion-content>

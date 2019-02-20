@@ -1,0 +1,10 @@
+<!-- Generated template for the ChatAvatarComponent component -->
+<ion-item color="beige-light" no-lines>
+  <ion-avatar *ngIf="position === 'start'" item-start>
+      <!-- pipes/build-url.ts-->
+      <img [src]="photo | buildUrl" alt="">
+  </ion-avatar>
+  <ion-avatar *ngIf="position === 'end'" item-end>
+        <img [src]="photo | buildUrl" alt="">
+    </ion-avatar>  
+</ion-item>

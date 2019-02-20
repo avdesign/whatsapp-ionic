@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="green-dark">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{product.name}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only [disabled]="amount < 1" (click)="submit()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>  
+</ion-header>
+  
+<ion-content padding>  
+  <ion-card>
+    <ion-card-title text-center>
+      {{product.name}}<br>
+      Total: {{ (product.price * amount) | numberFormatBr}}
+    </ion-card-title>
+
+    <img [src]="product.photo_url" alt=""/>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>Quantidade</ion-label>
+          <ion-input type="number" min="1" step="1" [(ngModel)]="amount"></ion-input>          
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>  
+</ion-content>
+  

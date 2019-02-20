@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar color="green-dark">
+    <ion-title>Insira seu número de telefone</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <!-- Sistema de login personalizado-->
+  <firebase-phone-number-check *ngIf="!showFirebaseUI"></firebase-phone-number-check>
+
+  <!-- Sistema de autenticação Firebase-->
+  <div id="firebase-ui"></div>
+</ion-content>

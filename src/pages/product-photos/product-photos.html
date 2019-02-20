@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar color="green-dark">
+    <ion-title>Opções de cores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-slides>
+
+    <ion-slide>
+      <img [src]="productData.product.photo_url" alt="" \>
+    </ion-slide>
+
+    <ion-slide *ngFor="let photo of productData.photos">
+      <img [src]="photo.photo_url" alt="" \>
+    </ion-slide>  
+
+  </ion-slides>
+
+</ion-content>

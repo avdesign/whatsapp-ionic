@@ -1,0 +1,25 @@
+<!-- Search Products -->
+<ion-navbar color="green-dark">
+
+  <ion-buttons left>
+    <button ion-button icon-only (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <form action="filter()">
+    <ion-searchbar (ionInput)="productSearch.options.search = $event.target.value"></ion-searchbar>
+  </form>
+
+  <ion-buttons right>
+    <button ion-button icon-only (click)="filter()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+    <button ion-button icon-only (click)="openProductSearchOptions()">
+      <ion-icon name="options"></ion-icon>
+    </button>
+  </ion-buttons>
+  
+
+
+</ion-navbar>

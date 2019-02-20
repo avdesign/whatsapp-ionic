@@ -1,0 +1,31 @@
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingText="Puxe para atualizar"
+      refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item *ngFor="let order of orders.data" (click)="openOrderDetail(order)">
+      <ion-avatar item-start>
+        <img [src]="order.product.photo_url | buildUrl" alt="">
+      </ion-avatar>
+      <h2>{{order.total | numberFormatBr}} - {{order.product.name}}</h2>
+      <p text-right>
+        <order-status [status]="order.status"></order-status>
+        {{order.created_at.date | date: 'dd/MM/yyyy'}}
+      </p>
+    </ion-item>
+    <ion-item *ngIf="!doNotOrder">
+      <p>Você ainda não fez nehum pedido.</p>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="canMoreOrders">
+      <ion-infinite-scroll-content loadingText="Carregando mais pedidos..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>      
+
+</ion-content>

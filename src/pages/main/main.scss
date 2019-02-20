@@ -1,0 +1,6 @@
+page-main {
+ /* Remover scroll da barra laleral */
+ .hide-scroll-content>.scroll-content{
+     overflow: hidden;
+ }
+}

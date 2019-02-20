@@ -1,0 +1,15 @@
+product-search-options {
+    ion-content{
+        background-color: map-get($colors, green-dark) !important;
+    }
+
+    ion-footer{
+        background-color: #ffffff !important;
+    }
+
+    .btn-round{
+        border-radius: 50% !important;
+        width: 56px;
+        height: 56px;
+    }
+}

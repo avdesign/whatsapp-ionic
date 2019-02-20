@@ -1,0 +1,44 @@
+<!-- Duas Colunas -->
+<ion-content>
+  <!-- Atualizar Página-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Puxe para atualizar" refreshingText="Carregando..."></ion-refresher-content>  
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row *ngFor="let product of products.data;let i=index;let isPair=even">
+
+      <ion-col *ngIf="isPair">
+        <ion-card (click)="openProductDetail(products.data[i].id)">
+          <img [src]="products.data[i].photo_url" alt="">
+          <ion-card-content>
+            <ion-title>
+              {{products.data[i].price | numberFormatBr}}
+            </ion-title>
+            <p>{{products.data[i].name | slice:0:12}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col *ngIf="isPair">
+        <ion-card *ngIf="products.data[i+1]" (click)="openProductDetail(products.data[i+1].id)">
+          <img [src]="products.data[i+1].photo_url" alt="">
+          <ion-card-content>
+            <ion-title>
+              {{products.data[i+1].price | numberFormatBr}}
+            </ion-title>
+            <p>{{products.data[i+1].name | slice:0:12}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="canMoreProducts">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+

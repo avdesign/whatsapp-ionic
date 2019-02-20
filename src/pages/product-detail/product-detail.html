@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="green-dark">
+    <ion-title>{{productData?.product.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <img [src]="productData?.product.photo_url" (click)="openPhotos()"/>
+    <ion-card-content>
+      <h2>
+        <strong>{{productData?.product.name}}</strong>
+      </h2>
+      <h1>
+        <strong>{{productData?.product.price | numberFormatBr}}</strong>
+      </h1>
+      <p>{{productData?.product.description}}</p>
+      <p text-center>
+        <button ion-button color="green-dark" (click)="openOrderStore()">Comprar</button>
+      </p>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>

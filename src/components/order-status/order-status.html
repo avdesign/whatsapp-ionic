@@ -1,0 +1,20 @@
+<ng-container [ngSwitch]="status">
+
+    <ion-badge color="light" *ngSwitchCase="STATUS_ENUM.STATUS_PENDING">
+      Pendente
+    </ion-badge>
+  
+    <ion-badge color="primary" *ngSwitchCase="STATUS_ENUM.STATUS_APPROVED">
+      Aprovado
+    </ion-badge>
+    
+    <ion-badge color="danger" *ngSwitchCase="STATUS_ENUM.STATUS_CANCELLED">
+      Cancelado
+    </ion-badge>
+  
+    <ion-badge color="secondary" *ngSwitchCase="STATUS_ENUM.STATUS_SENT">
+      Enviado
+    </ion-badge>   
+  
+  </ng-container>
+  

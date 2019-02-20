@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "555474622227",
+    "firebase_url": "https://codeshopping-4260c.firebaseio.com",
+    "project_id": "codeshopping-4260c",
+    "storage_bucket": "codeshopping-4260c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555474622227:android:cada0d2eff8a48c8",
+        "android_client_info": {
+          "package_name": "br.com.avdesign.whatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555474622227-trote91kfqsi2gt4g6a5i9234tcdsdq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtekq8HMCCaqbhQf2bboQLutt0xBvBAak"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

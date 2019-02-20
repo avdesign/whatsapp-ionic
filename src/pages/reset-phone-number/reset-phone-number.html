@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar color="green-dark">
+        <ion-title>Alterar número do telefone</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label stacked>Digite o seu email:</ion-label>
+            <ion-input type="text" [formControl]="email"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button color="green-dark" block
+            (click)="loadFirebaseUI()"
+            [hidden]="hasBtnEmailClicked"
+            [disabled]="email.invalid">
+        Continuar
+    </button>
+    <div id="firebase-ui" [hidden]="!hasBtnEmailClicked || email.invalid"></div>
+    <firebase-phone-number-check
+            [hidden]="!hasBtnEmailClicked || email.invalid || showFirebaseUI"
+    (onAuth)="requestUpdatePhoneNumber()">
+    </firebase-phone-number-check>
+</ion-content>

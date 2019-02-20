@@ -1,0 +1,30 @@
+<ion-header no-border>
+  <!-- Search Products-->
+  <product-searchbar [hidden]="!canShowSearchbar" (onBack)="canShowSearchbar = false"></product-searchbar>
+
+  <ion-navbar color="green-dark" [hidden]="canShowSearchbar">
+    <ion-title>CodeShopping</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only [hidden]="!canShowSearchIcon" (click)="canShowSearchbar = true">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="presentMoreOptions($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="hide-scroll-content">
+  <super-tabs 
+    toolbarBackground="green-dark"
+    toolbarColor="light"
+    indicatorColor="light"
+    (tabSelect)="onTabSelect($event)"> <!--remove search products-->
+    <super-tab id="groups" [root]="chatGroupList" title="Grupos" #tabChatGroupList></super-tab>
+    <super-tab id="products" [root]="productList" title="Produtos"></super-tab>
+    <super-tab id="orders" [root]="orderList" title="Pedidos"></super-tab>
+  </super-tabs>
+</ion-content>
+

@@ -1,0 +1,59 @@
+<!-- Opções para fitrar os produtos -->
+<ion-header>
+  <ion-navbar color="green-dark">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Busca de produtos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item color="green-dark">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col text-center>
+          <button ion-button icon-only class="btn-round"
+            [color]="productSearch.options.orderBy == 'latest' ? 'dark' : 'green-dark'"
+            (click)="productSearch.options.orderBy = 'latest'">
+            <ion-icon name="list-box"></ion-icon>            
+          </button>
+          <br>
+          <span ion-text color="light"
+            [style.text-decoration]="productSearch.options.orderBy == 'latest' ? 'underline' : 'none'">Mais Novos
+          </span>
+        </ion-col>
+
+        <ion-col text-center>
+          <button ion-button icon-only class="btn-round"
+          [color]="productSearch.options.orderBy == 'latest' ? 'green-dark' : 'dark'"
+          (click)="productSearch.options.orderBy = 'oldest'">
+            <ion-icon  name="paper"></ion-icon>
+          </button>
+          <br>
+          <span ion-text color="light"
+            [style.text-decoration]="productSearch.options.orderBy == 'latest' ? 'none' : 'underline'">Mais Antigos
+
+          </span>
+        </ion-col>  
+
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item color="green-dark">
+    <ion-label color="light">Categorias</ion-label>
+    <ion-select [(ngModel)]="productSearch.options.categories" multiple="true" cancelText="Cancelar" okText="Ok">
+      <ion-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer> 
+  <button ion-button block color="green-dark" outline no-margin (click)="filter()">Aplicar filtro</button>
+</ion-footer>

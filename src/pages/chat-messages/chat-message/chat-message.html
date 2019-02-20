@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ChatMessagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="green-dark">
+    <ion-item color="green-dark" no-lines>
+      <ion-avatar item-start>
+        <img [src]="chatGroup.photo_url | buildUrl" alt="">
+      </ion-avatar>
+      <ion-title>{{chatGroup.name}}</ion-title>
+    </ion-item>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="chat-bg">
+
+  <ion-infinite-scroll position="top" 
+                       (ionInfinite)="doInfinite($event)"
+                       [enabled]="canMoreMessages">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <div [style.visibility]="showContent ? 'visible' : 'hidden'">
+    <ng-container *ngFor="let message of messages">
+        <!-- pipes/is-current-user.js-->
+          <chat-content-left [message]="message.value" *ngIf="!(message.value.user_id | isCurrentUser)"></chat-content-left>
+          <chat-content-right [message]="message.value" *ngIf="message.value.user_id | isCurrentUser"></chat-content-right>
+      </ng-container>  
+  </div>
+
+  <ion-fab edge text-center [hidden]="showContent ? !showButtonScrollBottom() : true">
+    <ion-badge color="green-dark" [hidden]="!countNewMessages">{{ countNewMessages }}</ion-badge>
+    <button ion-fab icon-only color="beige-light" (click)="scrollToBottom()">
+      <ion-icon name="arrow-dropdown-circle"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+</ion-content>
+<ion-footer>
+  <chat-footer></chat-footer>
+</ion-footer>

@@ -1,0 +1,34 @@
+<!-- Rodapé das mensagens -->
+<ion-input type="file" [hidden]="true" #inputFileImage (change)="sendMessageImage($event.target.files)"></ion-input>
+<ion-list>
+  <ion-item-sliding #itemSliding (ionDrag)="onDrag()">
+    <ion-item class="no-padding-no-margin" color="beige-light">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-10 col-sm-10 col-md-11 col-x1-11>
+            <ion-item no-lines class="item-content">
+              <ion-textarea [(ngModel)]="text"></ion-textarea>
+              <ion-icon color="green-dark" name="camera" item-end (click)="selectImage()"></ion-icon>
+            </ion-item>
+          </ion-col>
+
+          <ion-col col-2 col-sm-2 col-md-1 col-x1-1 class="no-padding-no-margin">
+            <button ion-button class="btn-send-message" color="green-dark"
+              [disabled]="sending"
+              ion-long-press 
+              [interval]="1000 * 60 * 5" 
+              (onPressStart)="holdAudioButton()" 
+              (onPressEnd)="releaseAudioButton()"             
+              (click)="sendMessageText()">
+              <ion-icon [name]="getIconSendMessage()"></ion-icon>
+            </button>
+          </ion-col>  
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item-options side="right" class="chat-bg">
+      <button ion-button color="danger">Solte para cancelar</button>
+    </ion-item-options> 
+  </ion-item-sliding>
+</ion-list>
+  
