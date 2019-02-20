@@ -70,15 +70,9 @@ import { OrderDetailPage } from '../pages/order-detail/order-detail';
 function jwtFactory(authService: AuthProvider) {
   return {
       whitelistedDomains: [
-<<<<<<< HEAD
         //new RegExp('whatsapp-laravel.test/*'),
         //new RegExp('192.168.0.106:8000/*'),
         new RegExp('192.168.1.7:8000/*')
-=======
-        new RegExp('whatsapp-laravel.test/*'),
-        //new RegExp('192.168.0.106:8000/*'),
-        new RegExp('192.168.1.8:8000/*')
->>>>>>> c6455957a960e28a11eca47fec1e9cb2be53edc4
 
       ],
       tokenGetter: () => {

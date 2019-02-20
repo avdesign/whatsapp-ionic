@@ -5,15 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ChatInvitationProvider } from '../providers/chat-invitation/chat-invitation';
-<<<<<<< HEAD
 //import { MainPage } from '../pages/main/main';
 import { LoginOptionsPage } from '../pages/login-options/login-options';
-=======
-
-//import { MainPage } from '../pages/main/main';
-import { LoginOptionsPage } from '../pages/login-options/login-options';
-
->>>>>>> c6455957a960e28a11eca47fec1e9cb2be53edc4
 
 
 @Component({
@@ -26,11 +19,7 @@ export class MyApp {
   /**s
    * Página inicial
    */
-<<<<<<< HEAD
   rootPage: any = LoginOptionsPage; //MainPage; //
-=======
-  rootPage: any = LoginOptionsPage;
->>>>>>> c6455957a960e28a11eca47fec1e9cb2be53edc4
 
   pages: Array<{title: string, component: any}>;
 
